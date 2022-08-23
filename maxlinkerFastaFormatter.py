@@ -34,7 +34,7 @@ optional arguments:
 # re-formats a given fasta file into MaXLinker compatible format
 # input_filename = string (name of the fasta file to format)
 # output_filename = string (name of the file that output should be written to)
-def format_fasta(input_filename, output_filename)
+def format_fasta(input_filename, output_filename):
 
     with open(input_filename, "r") as f:
         data = f.read()
