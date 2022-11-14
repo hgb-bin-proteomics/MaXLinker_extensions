@@ -8,8 +8,8 @@
 import argparse
 import pandas as pd
 
-__version = "1.0.0"
-__date = "20220823"
+__version = "1.0.1"
+__date = "20221114"
 
 """
 DESCRIPTION:
@@ -32,6 +32,8 @@ optional arguments:
                         Name of the output file.
   -xlmod CROSSLINKER_MODIFICATION, --crosslinker-modification CROSSLINKER_MODIFICATION
                         Residue that the Crosslinker binds to e.g. K for DSSO.
+                        It's also possible to specify multiple residues e.g.
+                        KSTY for DSSO if you want to consider all possible links
   --version             show program's version number and exit
 """
 
@@ -39,13 +41,14 @@ optional arguments:
 # sequence = string (the amino acid sequence)
 # xl_modification = string (the one-letter-code of the amino acid that reacts with the crosslinker)
 def get_crosslinker_position(sequence, xl_modification = "k"):
+    xl_modifications = [AA.lower() for AA in xl_modification]
 
     i = 0
     for AA in sequence:
         if AA.isupper():
             i += 1
         else:
-            if AA == xl_modification.lower():
+            if AA in xl_modifications:
                 return i
             else:
                 i += 1
