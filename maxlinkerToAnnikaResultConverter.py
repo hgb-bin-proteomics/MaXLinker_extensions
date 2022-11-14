@@ -10,8 +10,8 @@ import argparse
 import pandas as pd
 import traceback as tb
 
-__version = "1.0.0"
-__date = "20220413"
+__version = "1.0.1"
+__date = "20221114"
 
 """
 DESCRIPTION:
@@ -39,6 +39,8 @@ optional arguments:
                         Name of the Crosslinker e.g. DSSO.
   -xlmod CROSSLINKER_MODIFICATION, --crosslinker-modification CROSSLINKER_MODIFICATION
                         Residue that the Crosslinker binds to e.g. K for DSSO.
+                        It's also possible to specify multiple residues e.g.
+                        KSTY for DSSO if you want to consider all possible links
   -mod MODIFICATIONS, --modifications MODIFICATIONS
                         Modifications as dictionary string / in json format.
   --version             show program's version number and exit
@@ -84,13 +86,14 @@ def create_modifications(sequence, crosslinker, crosslinker_aa, possible_modific
     annika_sequence = ""
     position = 1
     modifications = ""
+    xl_modifications = [AA.lower() for AA in crosslinker_aa]
 
     i = 1
     for AA in sequence:
         if AA.isupper():
             annika_sequence += AA
         else:
-            if AA.upper() == crosslinker_aa:
+            if AA in xl_modifications:
                 position = i
                 modifications += AA.upper() + str(i) + "(" + crosslinker + ");"
                 annika_sequence += "[" + AA.upper() + "]"
