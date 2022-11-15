@@ -67,7 +67,7 @@ python maxlinkerSeqAndPosGrouper.py my_results_uniq.tsv -o results_grouped
 
 ## MaXLinker to [IMP-X-FDR](https://github.com/fstanek/imp-x-fdr) converter
 
-The main purpose of this script is to convert MaXLinker output files to MS Annika format - which are usable with [IMP-X-FDR](https://github.com/fstanek/imp-x-fdr) tool. This way MaXLinker can be benchmarked on synthetic peptide libraries.
+The main purpose of this script is to convert MaXLinker output files to MS Annika format - which are usable with the [IMP-X-FDR](https://github.com/fstanek/imp-x-fdr) tool. This way MaXLinker can be benchmarked on synthetic peptide libraries.
 
 ```
 DESCRIPTION:
