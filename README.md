@@ -105,6 +105,16 @@ Example Usage:
 python maxlinkerToAnnikaResultConverter.py my_results_uniq.tsv -o my_results_converted -xl DSSO -xlmod KSTY -mod "{\"M\": \"Oxidation\", \"C\": \"Carbamidomethyl\"}"
 ```
 
+## Citing
+
+If you are using one of the MaXLinker extension scripts please cite:
+```
+MS Annika 2.0 Identifies Cross-Linked Peptides in MS2–MS3-Based Workflows at High Sensitivity and Specificity
+Micha J. Birklbauer, Manuel Matzinger, Fränze Müller, Karl Mechtler, and Viktoria Dorfer
+Journal of Proteome Research 2023 22 (9), 3009-3021
+DOI: 10.1021/acs.jproteome.3c00325
+```
+
 ## License
 
 [MIT License](https://github.com/hgb-bin-proteomics/MaXLinker_extensions/blob/master/LICENSE)
